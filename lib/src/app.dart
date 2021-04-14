@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:weather/src/screens/home/home.dart';
 
 class App extends StatefulWidget {
   @override
@@ -25,12 +26,7 @@ class _AppState extends State<App> {
                   case '/':
                     return MaterialPageRoute(
                       settings: settings,
-                      builder: (_) => Container(
-                        color: Colors.white,
-                        child: Center(
-                          child: Text('Home Page'),
-                        ),
-                      ),
+                      builder: (_) => Home(),
                     );
                   default:
                     return null;
