@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:weather/src/screens/city/city.dart';
 import 'package:weather/src/screens/home/home.dart';
 
 class App extends StatefulWidget {
@@ -28,6 +29,13 @@ class _AppState extends State<App> {
                       settings: settings,
                       builder: (_) => Home(),
                     );
+
+                  case '/city':
+                    return MaterialPageRoute(
+                      settings: settings,
+                      builder: (_) => City(),
+                    );
+
                   default:
                     return null;
                 }
