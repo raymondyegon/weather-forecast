@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:weather/src/model/city_model.dart';
 import 'package:weather/src/service_locator.dart';
 
 class _InheritedStateContainer extends InheritedWidget {
@@ -46,6 +47,37 @@ class StateContainer extends StatefulWidget {
 /// Basically the central hub behind the entire app
 class StateContainerState extends State<StateContainer> {
   final Logger log = sl.get<Logger>();
+
+  // The cities we are working with
+  // Silverstone, UK => 2637827
+  // São Paulo, Brazil => 3448433
+  // Melbourne, Australia => 2158177
+  // Monte Carlo, Monaco => 2992741
+
+  //  Icon link sample => http://openweathermap.org/img/wn/10d@2x.png
+
+  List<CityModel> cities = [
+    CityModel(
+      id: 2637827,
+      name: 'Silverstone',
+      country: 'UK',
+    ),
+    CityModel(
+      id: 3448433,
+      name: "São Paulo",
+      country: 'Brazil',
+    ),
+    CityModel(
+      id: 2158177,
+      name: 'Melbourne',
+      country: 'Australia',
+    ),
+    CityModel(
+      id: 2992741,
+      name: 'Monte Carlo',
+      country: 'Monaco',
+    ),
+  ];
 
   @override
   void initState() {
