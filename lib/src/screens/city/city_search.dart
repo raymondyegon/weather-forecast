@@ -11,7 +11,7 @@ class CitySearch extends StatefulWidget {
 }
 
 class _CitySearchState extends State<CitySearch> {
-  /// Will hole the searching results
+  /// Will hold the searching results
   ValueNotifier<List<ForecastModel>> filtered =
       ValueNotifier<List<ForecastModel>>([]);
 
