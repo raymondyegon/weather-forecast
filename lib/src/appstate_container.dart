@@ -134,6 +134,19 @@ class StateContainerState extends State<StateContainer> {
     );
   }
 
+  Future<void> getForecast(int cityId) async {
+    List<ForecastModel> forecastresult =
+        await sl.get<ApiService>().getForecastWeather(
+              cityID: cityId,
+            );
+
+    setState(
+      () {
+        weatherforecast[cityId] = forecastresult;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return _InheritedStateContainer(
