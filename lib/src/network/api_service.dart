@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:logger/logger.dart';
@@ -16,7 +14,7 @@ class ApiService {
 
   Options _cacheOptions;
 
-  String _apiKey = '';
+  String _apiKey = '918673ed015df672a950558c4f39e79e';
 
   Dio _dio;
 
@@ -56,9 +54,9 @@ class ApiService {
     log.d(response.data);
 
     if (response.statusCode == 200) {
-      Map decoded = json.decode(response.data);
+      // Map decoded = json.decode(response.data);
 
-      return ForecastModel.fromJson(decoded);
+      return ForecastModel.fromJson(response.data);
     } else {
       throw {
         'statusCode': response.statusCode,
