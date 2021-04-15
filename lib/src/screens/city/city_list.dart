@@ -32,7 +32,8 @@ class CityUtil {
 
               return InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/city');
+                  Navigator.of(context)
+                      .pushNamed('/city', arguments: {'cityId': city.id});
                 },
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
