@@ -30,10 +30,10 @@ class ApiService {
     _cacheOptions = buildCacheOptions(
       Duration(
         days: 1,
-      ), // Within the first data fter data loaded we return data from cache directly
+      ), // Within the first day we return data from cache directly
       maxStale: Duration(
         days: 5,
-      ), // After the first day we fist check the network and if it fails we use data from cache.. After 5 days we delete the cache
+      ), // After the first day we first check the network and if it fails we use data from cache.. After 5 days we delete the cache
       forceRefresh: true,
     );
 
@@ -42,6 +42,7 @@ class ApiService {
     _dio.interceptors.add(_dioCacheManager.interceptor);
   }
 
+  /// Get current weather using city name
   Future<ForecastModel> getCurrentWeather({@required int cityID}) async {
     Response response = await _dio.get(
       'http://api.openweathermap.org/data/2.5/weather?id=$cityID&units=metric&appid=$_apiKey',
@@ -64,6 +65,7 @@ class ApiService {
     }
   }
 
+  /// Get 5 day weather forecast using city id
   Future<List<ForecastModel>> getForecastWeather({@required int cityID}) async {
     Response response = await _dio.get(
       'http://api.openweathermap.org/data/2.5/forecast?id=$cityID&units=metric&appid=$_apiKey',
