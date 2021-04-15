@@ -10,6 +10,7 @@ class ForecastModel {
   final WeatherModel weather; // The weather description and Icon
   final String feelsLike; // What temp feels like
   final int unixTime; // timesince epoch when it is forecasted
+  final String dtISo; // time in ISO format
 
   factory ForecastModel.fromJson(Map<String, dynamic> json) {
     return ForecastModel(
@@ -22,6 +23,7 @@ class ForecastModel {
       tempMax: json['main']['temp_max'].toString(),
       humidity: json['main']['humidity'].toString(),
       unixTime: json['dt'],
+      dtISo: json['dt_txt'],
     );
   }
 
@@ -33,6 +35,7 @@ class ForecastModel {
     this.tempMax,
     this.tempMin,
     this.weather,
+    this.dtISo,
     this.windSpeed,
     this.unixTime,
   });
