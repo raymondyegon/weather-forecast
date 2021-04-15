@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather/src/appstate_container.dart';
 import 'package:weather/src/model/city_model.dart';
 import 'package:sizer/sizer.dart';
+import 'package:weather/src/model/forecast_model.dart';
 import 'package:weather/src/screens/city/city_list.dart';
 
 class CitySearch extends StatefulWidget {
@@ -11,7 +12,8 @@ class CitySearch extends StatefulWidget {
 
 class _CitySearchState extends State<CitySearch> {
   /// Will hole the searching results
-  ValueNotifier<List<CityModel>> filtered = ValueNotifier<List<CityModel>>([]);
+  ValueNotifier<List<ForecastModel>> filtered =
+      ValueNotifier<List<ForecastModel>>([]);
 
   // To help in clearing the text and obtaining input data
   TextEditingController searchController = TextEditingController();
@@ -24,11 +26,13 @@ class _CitySearchState extends State<CitySearch> {
   @override
   Widget build(BuildContext context) {
     // The cities we're working with
+    List<ForecastModel> _weather = StateContainer.of(context).currentWeather;
+
     List<CityModel> _cities = StateContainer.of(context).cities;
 
-    return ValueListenableBuilder<List<CityModel>>(
+    return ValueListenableBuilder<List<ForecastModel>>(
       valueListenable: filtered,
-      builder: (BuildContext context, List<CityModel> result, _) {
+      builder: (BuildContext context, List<ForecastModel> result, _) {
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 4.0.w, vertical: 1.5.h),
           width: 100.0.w,
@@ -78,14 +82,17 @@ class _CitySearchState extends State<CitySearch> {
                           searching = true;
                           filtered.value = [];
 
-                          _cities.forEach((item) {
-                            if (item.name
-                                .toString()
-                                .toLowerCase()
-                                .contains(text.toLowerCase())) {
-                              filtered.value.add(item);
-                            }
-                          });
+                          _cities.forEach(
+                            (item) {
+                              if (item.name
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(text.toLowerCase())) {
+                                filtered.value.add(_weather.singleWhere(
+                                    (element) => element.cityID == item.id));
+                              }
+                            },
+                          );
                         } else {
                           searching = false;
                           filtered.value = [];
@@ -111,12 +118,12 @@ class _CitySearchState extends State<CitySearch> {
                               )
                             : CityUtil.cityList(
                                 context: context,
-                                cities: _cities,
+                                weather: _weather,
                               )
                     : result.length > 0
                         ? CityUtil.cityList(
                             context: context,
-                            cities: result,
+                            weather: result,
                           )
                         : searchController.value.text.length > 0
                             ? Center(
@@ -130,7 +137,7 @@ class _CitySearchState extends State<CitySearch> {
                               )
                             : CityUtil.cityList(
                                 context: context,
-                                cities: _cities,
+                                weather: _weather,
                               ),
               ),
             ],
