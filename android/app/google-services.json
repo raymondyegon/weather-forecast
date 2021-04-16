@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "621190748718",
+    "project_id": "weather-forecast-ca4ef",
+    "storage_bucket": "weather-forecast-ca4ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621190748718:android:a9af8f990bea2d724d9dbf",
+        "android_client_info": {
+          "package_name": "com.rocknroll.weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621190748718-hvtmp7o4usdi215fg6bfmiunv5uqf0d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfTkEloyVhlwJUIPwYMrEtfKw7OE8k9Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621190748718-hvtmp7o4usdi215fg6bfmiunv5uqf0d7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
