@@ -41,8 +41,12 @@ dependencies:
   flutter_icons: ^1.1.0 
 
 dev_dependencies:
+  # For widget testing
   flutter_test:
     sdk: flutter
+  
+  # For unit testing
+  test: ^1.15.7 
 
 
 
