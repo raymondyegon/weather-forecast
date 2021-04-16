@@ -40,6 +40,15 @@ dependencies:
   # Icons package
   flutter_icons: ^1.1.0 
 
+  # Firebase Core Flutter SDK
+  firebase_core: ^0.7.0
+
+  # FlutterFire plugin for Google Analytics
+  firebase_analytics: ^7.0.1
+
+  # To monitor app crashes
+  firebase_crashlytics: ^0.4.0+1 
+
 dev_dependencies:
   # For widget testing
   flutter_test:
