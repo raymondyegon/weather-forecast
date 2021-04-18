@@ -4,7 +4,8 @@ Weather Tracker for rock n roll band. The app is able to display current weather
 
 ## Built With
 * Flutter (1.22) - Focused on Android
-* Firebase
+* Firebase (For analytics & Crashlytics)
+
 
 
 ## Getting Started
