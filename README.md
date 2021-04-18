@@ -3,7 +3,7 @@
 Weather Tracker for rock n roll band. The app is able to display current weather of a selected city and the forecast for the next 5 days.
 
 ## Built With
-* Flutter (1.22)
+* Flutter (1.22) - Focused on Android
 * Firebase
 
 
